@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>控件封装</title>
+<link rel="stylesheet" type="text/css" href="css/main.css"/>
+<script type="text/javascript" src="js/jquery-1.7.1.js" ></script>
+<script type="text/javascript" src="js/public.js" ></script>
+<script type="text/javascript" src="js/data.js" ></script>
+<!--原生表单加样式-->
+<script type="text/javascript" src="js/jquery.jqtransform.js" ></script>
+
+<script type="text/javascript" src="js/myRadio.js" ></script>
+<script type="text/javascript" src="js/myChk.js" ></script>
+
+<script type="text/javascript" src="js/test_2.js" ></script>
+</head>
+
+<body style="padding:20px;">
+
+<div style="height:100px;display:block;">
+	<div class="selectDiv">
+		<h1>单选：</h1>
+		<div id="myRadio">请初始化</div>
+	</div>
+	<div id="btns">
+		<button class="blueBtn">初始化</button>
+	  <button class="blueBtn">获取选中的值</button>
+	  <button class="blueBtn">设置选中2</button>    
+	</div>
+</div>
+
+</br>
+
+<div style="height:100px;display:block;">
+	<div class="selectDiv">
+		<h1>下拉选择框：</h1>
+		<div id="myChk">请初始化</div>
+	</div>
+	<div id="btns2">
+		<button class="blueBtn">初始化</button>
+		<button class="blueBtn">获取选中值</button>
+		<button class="blueBtn">设置选中1,2</button>
+	</div>
+</div>
+
+<div style="display:block;">
+<pre style="line-height:25px;width:500px,overflow:auto;">
+
+练习说明:
+目的：
+	理解界面组件封装思想, 面像过程开发转变为面向对象开发, 提高代码复用性。
+
+考前注意事项：
+	1、练习内容提交：
+	   不能修改《控件封装.html》文件的内容
+	   所有逻辑都写在js目录下的test_2.js和myChk.js文件里，练习完仅提交这两个js，阅卷者在本机引入这个js，以不能正常操作的功能点进行扣分。
+	2、练习前请熟悉《1，js-基础》《2，js-jQuery基础》文件夹中常用的js和jQuery代码
+	3、功能正确第一，代码易读易懂第二，开发速度第三，所以请检查好再提交。
+
+考题要求：
+	1，以data.js里的基础数据为准。
+	2，参考单选控件封装（myRadio.js文件）实现方式，对下拉选择框控件进行封装，控件封装代码写在myChk.js文件中
+	3. 在test_2.js文件中通过使用下拉选择框控件，实现三个按钮的逻辑。
+</pre>
+</div>
+
+</body>
+</html>
