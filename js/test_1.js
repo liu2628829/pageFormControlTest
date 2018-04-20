@@ -1,9 +1,27 @@
 //页面初始化
 $(function(){
 	 var btns = $(".blueBtn");
+	 //单选
    $(btns[0]).bind("click",initRadio);
    $(btns[1]).bind("click",getRadioValue);
    $(btns[2]).bind("click",setRadioValue);
+    //多选
+    $(btns[3]).bind("click",initRadioMultipleChoice);
+    $(btns[4]).bind("click",getRadioValueMultipleChoice);
+    $(btns[5]).bind("click",setRadioValueMultipleChoice);
+    // //下拉
+    // $(btns[0]).bind("click",initRadioPullDown);
+    // $(btns[1]).bind("click",getRadioValuePullDown);
+    // $(btns[2]).bind("click",setRadioValuePullDown);
+    // //文本框
+    // $(btns[0]).bind("click",initRadio);
+    // $(btns[1]).bind("click",getRadioValue);
+    // $(btns[2]).bind("click",setRadioValue);
+    // //列表
+    // $(btns[0]).bind("click",initRadio);
+    // $(btns[1]).bind("click",getRadioValue);
+    // $(btns[2]).bind("click",setRadioValue);
+
    
    //其它按钮事件绑定...
 });
@@ -24,8 +42,10 @@ function initRadio(){
 //单选框按钮-取值
 function getRadioValue(){
 	var str = "未选中！";
+    //获取已勾选的元素checkedObj
 	var checkedObj = $('#rads input[name="question"]:checked');
 	if(checkedObj.length > 0){
+	    //用parent定位到父节点
 		str = checkedObj.val() + " : " + checkedObj.parent().parent().text();
 	}
 	alert(str);
@@ -39,4 +59,40 @@ function setRadioValue(){
 	//设置选中项value
 	$("#rads input[name='question']").eq(1).attr('checked', 'true');
 	$("#rads .jqTransformRadioWrapper a").eq(1).addClass("jqTransformChecked");
+}
+
+
+//多选框按钮-初始化
+function initRadioMultipleChoice(){
+    var node = $("#chks");
+    //定义数组记录数据，js中建议用该方法拼接字符串
+    var arry = [];
+    for (var i = 0;i<checkboxData.length;i++){
+        var html = '<p><input type="radio" name="question" value="'+checkboxData[i].id+'"> '+checkboxData[i].name+'</p>';
+        arry.push(html);
+    }
+    node.html(arry.join(" "));
+    $('input:radio', node).jqTransRadio();
+}
+
+//多选框按钮-取值
+function getRadioValueMultipleChoice(){
+    var str = "未选中！";
+    var checkedObj = $('#chks input[name="question"]:checked');
+    if(checkedObj.length > 0){
+        str = checkedObj.val() + " : " + checkedObj.parent().parent().text();
+    }
+    alert(str);
+}
+
+//多选框按钮-设置值
+function setRadioValueMultipleChoice(){
+    //清空所有选择项
+    $("#chks input[name='question']").attr('checked', '');
+    $("#chks .jqTransformRadioWrapper a").removeClass("jqTransformChecked");
+    //设置选中项value
+    $("#chks input[name='question']").eq(0).attr('checked', 'true');
+    $("#chks .jqTransformRadioWrapper a").eq(0).addClass("jqTransformChecked");
+    $("#chks input[name='question']").eq(1).attr('checked', 'true');
+    $("#chks .jqTransformRadioWrapper a").eq(1).addClass("jqTransformChecked");
 }

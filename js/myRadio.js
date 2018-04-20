@@ -1,5 +1,6 @@
-//单选框对象化封装
+//单选框对象化封装，创建匿名对象，一开始就执行
 (function($){
+    //method用于区分方法，options为参数
 	$.fn.checkRadio= function(method, options) {
 		if(typeof(method)=='object'){
 			create(this, method);
